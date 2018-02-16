@@ -21,7 +21,7 @@ import com.dfoster.PhraseBuilder;
 @RunWith(Arquillian.class)
 public class InjectionTest {
 	
-	@Deployment(name = "dep1") @TargetsContainer("eap-managed-7.1")
+	@Deployment
 	public static Archive<?> deployment() {
 		
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
@@ -36,14 +36,14 @@ public class InjectionTest {
 	@Inject
 	GreeterPB greeter;
 	
-	@Test @OperateOnDeployment("dep1") 
+	@Test  
     public void should_create_greeting1() {
         assertEquals("Hello, Earthling!",
             greeter.createGreeting1("Earthling"));
         greeter.greet1(System.out, "Earthling");
     }
 	
-	@Test @OperateOnDeployment("dep1")
+	@Test 
     public void should_create_greeting2() {
         assertEquals("Hello, Earthling!",
             greeter.createGreeting2("Earthling"));
