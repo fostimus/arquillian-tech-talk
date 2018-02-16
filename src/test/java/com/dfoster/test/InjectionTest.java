@@ -21,8 +21,9 @@ import com.dfoster.PhraseBuilder;
 @RunWith(Arquillian.class)
 public class InjectionTest {
 	
-	@Deployment(name = "dep1") @TargetsContainer("eap-managed")
+	@Deployment(name = "dep1") @TargetsContainer("eap-managed-7.1")
 	public static Archive<?> deployment() {
+		
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
 	            .addClass(GreeterPB.class)
 	            .addClass(PhraseBuilder.class)

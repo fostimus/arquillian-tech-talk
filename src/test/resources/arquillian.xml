@@ -7,7 +7,7 @@
     <defaultProtocol type="Servlet 3.0"/>
     
     <group qualifier="managed">
-    	<container qualifier="eap-managed-7.1" default="true">
+    	<container qualifier="eap-managed-7.1">
 	        <configuration>
 	            <property name="jbossHome">/home/dfoster/Development/jboss-eap-7.1</property>
 	            <property name="managementAddress">localhost</property>
@@ -28,6 +28,16 @@
 	        </configuration>
 	    </container> 
 	 </group>
+	 
+	 <container qualifier="eap-remote1" default="true">
+        <configuration>
+            <property name="jbossHome">/home/dfoster/Development/jboss-eap-7.1</property>
+            <property name="managementAddress">localhost</property>
+            <property name="managementPort">9990</property>
+            <property name="username">derek</property>
+            <property name="password">password</property>
+        </configuration>
+    </container>
 	 
 	 <container qualifier="eap-remote">
         <configuration>
