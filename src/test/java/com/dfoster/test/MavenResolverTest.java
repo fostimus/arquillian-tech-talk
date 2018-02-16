@@ -25,7 +25,7 @@ public class MavenResolverTest {
 	static File[] dependencies = Maven.resolver().loadPomFromFile("/home/dfoster/Development/projects/arquillian-tech-talk/pom.xml").importDependencies(ScopeType.TEST, ScopeType.COMPILE)
 			  .resolve().withTransitivity().asFile();
 	
-	@Deployment //@TargetsContainer("eap-managed-7.1")
+	@Deployment @TargetsContainer("eap-managed-7.1")
 	public static Archive<?> deployment() {
 		return ShrinkWrap.create(WebArchive.class, "test.war")
 				//.addClass(Splitter.class)
