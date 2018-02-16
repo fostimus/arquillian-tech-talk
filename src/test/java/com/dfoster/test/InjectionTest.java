@@ -15,7 +15,7 @@ import org.jboss.shrinkwrap.api.spec.JavaArchive;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.dfoster.Greeter;
+import com.dfoster.GreeterPB;
 import com.dfoster.PhraseBuilder;
 
 @RunWith(Arquillian.class)
@@ -24,7 +24,7 @@ public class InjectionTest {
 	@Deployment(name = "dep1") @TargetsContainer("eap-managed")
 	public static Archive<?> deployment() {
 		JavaArchive jar = ShrinkWrap.create(JavaArchive.class)
-	            .addClass(Greeter.class)
+	            .addClass(GreeterPB.class)
 	            .addClass(PhraseBuilder.class)
 	            .addAsManifestResource(EmptyAsset.INSTANCE, "beans.xml");
 		System.out.println(jar.toString(true));
@@ -33,7 +33,7 @@ public class InjectionTest {
 	}
 	
 	@Inject
-	Greeter greeter;
+	GreeterPB greeter;
 	
 	@Test @OperateOnDeployment("dep1") 
     public void should_create_greeting1() {
